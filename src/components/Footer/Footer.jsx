@@ -25,7 +25,7 @@ const Footer = () => {
                         <h1 className="max-sm:text-2xl text-3xl font-extrabold">Follow us</h1>
                         {socialMedia.map((item, index) => {
                             return (
-                                <a key={index} className="w-full flex items-center justify-between text-lg" target='_blank' rel="noopener noreferrer" href={item[0]}>
+                                <a key={index} className="w-full flex items-center justify-between text-lg hover:text-slate-300" target='_blank' rel="noopener noreferrer" href={item[0]}>
                                     <img className="w-[20px] h-[20px] xl:w-[25px] xl:h-[25px]" src={item[1]} alt="" />
                                     {item[2]}
                                 </a>
@@ -44,11 +44,11 @@ const Footer = () => {
                         <NavLink to='/' onClick={() => { window.scrollTo(0, 0)}}>
                             <img className="max-sm:w-[50px] max-sm:h-[50px] w-[60px] h-[60px] xl:w-[90px] xl:h-[90px]" src={logo} alt="Tensor" />
                         </NavLink>
-                        <a className="flex gap-[10px] max-sm:text-sm text-base xl:text-[18px]" target='_blank' rel="noopener noreferrer" href="https://www.google.com/maps/place/IOE,+Thapathali+Campus/@27.6941071,85.3186142,19z/data=!4m6!3m5!1s0x39eb19ae08c068d9:0x475bed1f66d060c!8m2!3d27.6940347!4d85.3188261!16s%2Fm%2F05zhjq0?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D">
+                        <a className="flex gap-[10px] max-sm:text-sm text-base xl:text-[18px] hover:text-slate-300" target='_blank' rel="noopener noreferrer" href="https://www.google.com/maps/place/IOE,+Thapathali+Campus/@27.6941071,85.3186142,19z/data=!4m6!3m5!1s0x39eb19ae08c068d9:0x475bed1f66d060c!8m2!3d27.6940347!4d85.3188261!16s%2Fm%2F05zhjq0?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D">
                             <img className="w-4 xl:w-[20px]" src={gps} alt="Location" />
                             IOE THAPATHALI
                         </a>
-                        <a className="flex gap-[10px] max-sm:text-sm text-base xl:text-[18px]" target='_blank' rel="noopener noreferrer" href="mailto:tensor@tcioe.edu">
+                        <a className="flex gap-[10px] max-sm:text-sm text-base xl:text-[18px] hover:text-slate-300" target='_blank' rel="noopener noreferrer" href="mailto:tensor@tcioe.edu">
                             <img className="w-7 xl:w-[35px]" src={mail} alt="Mail" />
                             tensorioe@tcioe.edu
                         </a>

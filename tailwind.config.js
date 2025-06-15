@@ -9,6 +9,12 @@ module.exports = {
         'navbarShadow' : "0 1px 5px 1px grey",
         'boxShadow': '3px 3px 5px grey'
       },
+      backgroundImage: {
+        'gradient-animated': 'linear-gradient(-70deg, #10518A, #306EA5, #508AC0, #90C3F6)'
+      },
+      backgroundSize: {
+        '200': '200% 200%' // to have big background size for moving effect
+      },
       borderRadius: {
         'customborder' : '42% 56% 72% 28% / 42% 42% 56% 48%'
       },
@@ -21,11 +27,20 @@ module.exports = {
         'midAnimRev': 'midAnimRev .5s forwards',
         'botAnim': 'botAnim .5s forwards',
         'botAnimRev': 'botAnimRev .5s forwards',
+        'gradient-x': 'gradientX 5s ease infinite'
       },
       transitionProperty: {
         'hover' : 'all .5s ease'
       },
       keyframes: {
+        gradientX: {
+          '0%, 100%': {
+            'background-position': '0% 50%',
+          },
+          '50%': {
+            'background-position': '100% 50%',
+          },
+        },
         change: {
           '0%, 100%': {
             'border-radius': '42% 56% 72% 28% / 42% 42% 56% 48%'
