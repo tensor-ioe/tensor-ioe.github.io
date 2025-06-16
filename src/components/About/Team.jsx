@@ -13,13 +13,13 @@ const Team = () => {
 
   return (
     <>
-      <h1 ref={currentTeam} className="relative text-4xl md:text-5xl font-extrabold text-center mb-10">CURRENT TEAM</h1>
-      <div className={`w-full ${loadMore ? "h-full" : "max-md:h-[1110px] h-[370px] xl:h-[400px]"} flex items-center justify-around md:justify-between flex-wrap gap-7 relative overflow-hidden`}>
+      <h1 ref={currentTeam} className="relative text-4xl md:text-5xl font-extrabold text-center mb-8">CURRENT TEAM</h1>
+      <div className={`w-full ${loadMore ? "h-full" : "max-md:h-[1125px] h-[380px] lg:h-[410px]"} pt-2 flex items-center justify-around flex-wrap gap-7 relative overflow-hidden`}>
         {CurrentTeam.map((item, index) => {
           return (
-            <div key={index} className="w-[270px] lg:w-[300px] xl:w-[350px] h-[350px] lg:h-[400px] rounded-xl bg-[#90C3F6]">
+            <div key={index} className="w-[270px] lg:w-[300px] xl:w-[350px] h-[350px] lg:h-[400px] p-2 rounded-xl bg-gradient-animated bg-200 duration-75 hover:cursor-pointer hover:-translate-y-2 hover:animate-gradient-x hover:shadow-boxShadow">
               <img className='xl:w-[350px] xl:h-[262px] rounded-xl object-fill mb-[10px]' src={item.Image} alt="memories" />
-              <div className='text-center text-3xl font-bold'>{item.Name}</div>
+              <div className='text-center text-2xl font-bold'>{item.Name}</div>
               <div className='text-center text-xl'>{item.Role}</div>
             </div>
           )
