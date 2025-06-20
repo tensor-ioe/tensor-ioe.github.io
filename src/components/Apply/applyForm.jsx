@@ -1,5 +1,5 @@
 import axios from "axios";
-import { list } from "postcss";
+// import { list } from "postcss";
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -15,13 +15,13 @@ const ApplyForm = ({ apiKey }) => {
   // const [positions, setPositions] = useState([]);
   const [position, setPosition] = useState("");
   const [disableInput, setDisableInput] = useState(false);
-
   const handlePositions = (e) => {
     // console.log("This is positions");
     // console.log(positions);
     // console.log(positions.length);
     const { name, checked } = e.target;
-
+    console.log(checked)
+    console.log(setDisableInput)
     // setPositions((prevPositions) => {
     //   if (checked) {
     //     if (positions.length >= 2) {
