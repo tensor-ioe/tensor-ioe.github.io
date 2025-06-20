@@ -12,7 +12,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
 const App = () => {
     return (
-        <Router basename="/websiteMain">
+        <Router>
             <Navbar />
             <Routes>
                 <Route path="/" Component={Home}></Route>
