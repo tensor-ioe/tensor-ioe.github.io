@@ -57,7 +57,7 @@ const Events = () => {
               </NavLink>
               <h1 className="max-md:text-sm text-xl text-center font-bold">{event.date}</h1>
             </div>
-            <div className="max-sm:w-full w-3/5 h-full max-md:text-sm max-sm:border-t-4 sm:border-l-4 py-4 px-10 text-justify overflow-scroll">
+            <div className="max-sm:w-full w-3/5 h-full max-md:text-sm max-sm:border-t-4 sm:border-l-4 pt-3 pb-20 px-10 text-justify overflow-scroll">
               {event.description}
             </div>
           </div>
