@@ -14,8 +14,10 @@ export default function ApplyForm() {
     answerTwo: '',
     questionThree: 'How do you plan to contribute to the community as part of the above selected domain?',
     answerThree: '',
-    questionFour: 'Any query of feedbacks?',
-    answerFour: ''
+    questionFour: 'What do you expect from Tensor?',
+    answerFour: '',
+    questionFive: 'Any query of feedbacks?',
+    answerFive: ''
   })
   const [errors, setErrors] = useState({})
   const [overlay, setOverlay] = useState(false)
@@ -59,9 +61,9 @@ export default function ApplyForm() {
       newErrors.email = "Please enter a valid email address"
     }
     if (notValidField(form.rollno)) { newErrors.rollno = "Please fill out this field" }
-    if (notValidField(form.answerOne)) { newErrors.answerOne = "Please fill out this field" }
     if (notValidField(form.answerTwo)) { newErrors.answerTwo = "Please fill out this field" }
     if (notValidField(form.answerThree)) { newErrors.answerThree = "Please fill out this field" }
+    if (notValidField(form.answerFour)) { newErrors.answerFour = "Please fill out this field" }
     setErrors(newErrors)
     if (Object.keys(newErrors).length > 0) {// if atleast one invalid field, wont submit the form
       window.scrollTo(0, 0) // and take user to top of the page for rethinking their lifechoices
@@ -90,6 +92,10 @@ export default function ApplyForm() {
           {
             question: form.questionFour,
             response: form.answerFour
+          },
+          {
+            question: form.questionFive,
+            response: form.answerFive
           }
         ],
         createdAt: serverTimestamp()
@@ -113,8 +119,10 @@ export default function ApplyForm() {
       answerTwo: '',
       questionThree: 'How do you plan to contribute to the community as part of the above selected domain?',
       answerThree: '',
-      questionFour: 'Any query of feedbacks?',
-      answerFour: ''
+      questionFour: 'What do you expect from Tensor?',
+      answerFour: '',
+      questionFive: 'Any query of feedbacks?',
+      answerFive: ''
     })
   }
   return (
@@ -240,24 +248,18 @@ export default function ApplyForm() {
               />
               <label htmlFor="Software Coordinator Role">Software Coordinator</label>
             </div>
-            <span>{form.questionOne}<span className="text-red-500"> *</span></span>
-            <div>
-              <textarea
-                name="answerOne"
-                value={form.answerOne}
-                onChange={handleChange}
-                required
-                className="w-full h-32 px-4 py-2 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              {errors.answerOne && (
-                <p className="text-red-500 pt-2 text-sm uppercase">{errors.answerOne}</p>
-              )}
-            </div>
+            <span>{form.questionOne}</span>
+            <textarea
+              name="answerOne"
+              value={form.answerOne}
+              onChange={handleChange}
+              className="w-full h-32 px-4 py-2 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
           </div>
           {/* Personal Expression container */}
           <div className="flex flex-col gap-4">
             <h1 className="font-bold uppercase text-lg text-center">Personal Expression</h1>
-            <span>{form.questionTwo}<span className="text-red-500"> *</span> </span>
+            <span>{form.questionTwo}<span className="text-red-500"> *</span></span>
             <div>
               <textarea
                 name="answerTwo"
@@ -270,7 +272,7 @@ export default function ApplyForm() {
                 <p className="text-red-500 pt-2 text-sm uppercase">{errors.answerTwo}</p>
               )}
             </div>
-            <span>{form.questionThree}<span className="text-red-500"> *</span> </span>
+            <span>{form.questionThree}<span className="text-red-500"> *</span></span>
             <div>
               <textarea
                 name="answerThree"
@@ -283,10 +285,23 @@ export default function ApplyForm() {
                 <p className="text-red-500 pt-2 text-sm uppercase">{errors.answerThree}</p>
               )}
             </div>
-            <span>{form.questionFour}</span>
+            <span>{form.questionFour}<span className="text-red-500"> *</span></span>
+            <div>
+              <textarea
+                name="answerFour"
+                value={form.answerFour}
+                onChange={handleChange}
+                required
+                className="w-full h-32 px-4 py-2 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              {errors.answerFour && (
+                <p className="text-red-500 pt-2 text-sm uppercase">{errors.answerFour}</p>
+              )}
+            </div>
+            <span>{form.questionFive}</span>
             <textarea
-              name="answerFour"
-              value={form.answerFour}
+              name="answerFive"
+              value={form.answerFive}
               onChange={handleChange}
               className="w-full h-32 px-4 py-2 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -300,13 +315,7 @@ export default function ApplyForm() {
           </button>
         </form>
       </div>
-      <div
-        onClick={() => {
-          setOverlay(false)
-          setSuccess(false)
-          setFailure(false)
-        }}
-        className={`w-[100vw] h-[100vh] fixed top-0 z-30 bg-[#00000099] ${overlay ? "flex" : "hidden"} justify-center items-center`}>
+      <div className={`w-[100vw] h-[100vh] fixed top-0 z-30 bg-[#00000099] ${overlay ? "flex" : "hidden"} justify-center items-center`}>
         {/* For form submission successful  */}
         <div className={`p-4 sm:p-6 bg-white rounded-lg ${success ? "flex" : "hidden"} flex-col justify-center items-center gap-2 sm:gap-5`}>
           <div className="text-xl sm:text-3xl font-bold text-center">Form Submitted ✅</div>
@@ -331,7 +340,6 @@ export default function ApplyForm() {
           <div
             onClick={() => {
               setOverlay(false)
-              setSuccess(false)
               setFailure(false)
             }}
             className="w-full grid place-content-center p-2 cursor-pointer rounded-lg bg-red-400 uppercase hover:bg-red-600">Retry</div>
